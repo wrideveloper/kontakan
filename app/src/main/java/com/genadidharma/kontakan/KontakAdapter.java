@@ -16,22 +16,24 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 class KontakAdapter extends RecyclerView.Adapter<KontakAdapter.KontakAdapterViewHolder> {
-    private List<Kontak> listKontak;
+    private final List<Kontak> listKontak;
+    private final OnItemClickListener itemClickListener;
 
-    public KontakAdapter(List<Kontak> listKontak) {
+    public KontakAdapter(List<Kontak> listKontak, OnItemClickListener itemClickListener) {
         this.listKontak = listKontak;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
     @Override
-    public KontakAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public KontakAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)  {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         return new KontakAdapterViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull KontakAdapter.KontakAdapterViewHolder holder, int position) {
-        holder.bindItem(listKontak.get(position));
+        holder.bindItem(listKontak.get(position), itemClickListener);
     }
 
     @Override
@@ -44,7 +46,7 @@ class KontakAdapter extends RecyclerView.Adapter<KontakAdapter.KontakAdapterView
             super(itemView);
         }
 
-        private void bindItem(Kontak kontak) {
+        private void bindItem(Kontak kontak, OnItemClickListener itemClickListener) {
             CircleImageView ciFoto = itemView.findViewById(R.id.ci_foto);
             TextView tvNama = itemView.findViewById(R.id.tv_nama);
 
@@ -55,6 +57,13 @@ class KontakAdapter extends RecyclerView.Adapter<KontakAdapter.KontakAdapterView
                     .override(100, 100)
                     .into(ciFoto);
             tvNama.setText(kontak.getNama());
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClickListener.onItemClick(kontak);
+                }
+            });
         }
     }
 }

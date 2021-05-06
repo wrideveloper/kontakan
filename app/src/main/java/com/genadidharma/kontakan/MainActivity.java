@@ -1,10 +1,10 @@
 package com.genadidharma.kontakan;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
 
 import java.util.List;
 
@@ -22,7 +22,12 @@ public class MainActivity extends AppCompatActivity {
         initLayout();
 
         rvKontak.setLayoutManager(new LinearLayoutManager(this));
-        KontakAdapter kontakAdapter = new KontakAdapter(lisKontak);
+        KontakAdapter kontakAdapter = new KontakAdapter(lisKontak, new OnItemClickListener() {
+            @Override
+            public void onItemClick(Kontak kontak) {
+
+            }
+        });
         rvKontak.setAdapter(kontakAdapter);
     }
 
