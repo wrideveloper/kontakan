@@ -1,6 +1,8 @@
 package com.genadidharma.kontakan;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
         KontakAdapter kontakAdapter = new KontakAdapter(lisKontak, new OnItemClickListener() {
             @Override
             public void onItemClick(Kontak kontak) {
-
+                Intent intent = new Intent(MainActivity.this, DetailKontakActivity.class);
+                intent.putExtra("kontak", (Parcelable) kontak);
+                startActivity(intent);
             }
         });
         rvKontak.setAdapter(kontakAdapter);

@@ -49,54 +49,74 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_no_telepon" />
 
     <ImageView
-        android:id="@+id/iv_call"
+        android:id="@+id/iv_message"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="32dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toStartOf="@+id/divider2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:srcCompat="@drawable/ic_baseline_call_24" />
+        app:srcCompat="@drawable/ic_baseline_message_24" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/iv_email"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toStartOf="@+id/divider3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/divider2"
         app:layout_constraintTop_toTopOf="@+id/divider2"
-        app:srcCompat="@drawable/ic_baseline_message_24" />
+        app:srcCompat="@drawable/ic_baseline_email_24" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/iv_duo"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/divider3"
         app:layout_constraintTop_toTopOf="@+id/divider3"
-        app:srcCompat="@drawable/ic_baseline_email_24" />
+        app:srcCompat="@drawable/ic_baseline_duo_24" />
 
     <View
         android:id="@+id/divider2"
-        android:layout_width="0.5"
+        android:layout_width="0.8dp"
         android:layout_height="32dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/iv_email"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_call"
-        app:layout_constraintTop_toTopOf="@+id/iv_call" />
+        app:layout_constraintStart_toEndOf="@+id/iv_message"
+        app:layout_constraintTop_toTopOf="@+id/iv_message" />
 
     <View
         android:id="@+id/divider3"
-        android:layout_width="0.5"
+        android:layout_width="0.8dp"
         android:layout_height="32dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/iv_duo"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/iv_email"
+        app:layout_constraintTop_toTopOf="@+id/iv_email" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_call_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
