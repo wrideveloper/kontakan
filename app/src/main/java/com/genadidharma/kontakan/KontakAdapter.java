@@ -52,7 +52,8 @@ class KontakAdapter extends RecyclerView.Adapter<KontakAdapter.KontakAdapterView
                     .with(itemView.getContext())
                     .load(kontak.getFoto())
                     .apply(new RequestOptions())
-                    .override(55, 55).into(ciFoto);
+                    .override(100, 100)
+                    .into(ciFoto);
             tvNama.setText(kontak.getNama());
         }
     }
