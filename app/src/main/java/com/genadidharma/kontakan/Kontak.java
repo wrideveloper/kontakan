@@ -3,11 +3,23 @@ package com.genadidharma.kontakan;
 import androidx.annotation.DrawableRes;
 
 public class Kontak {
+    //TODO 1: Mendeklarasikan atribut-atribut pada Objek Kontak
+    /*
+    foto: int
+    nama: String
+    noTelepon: String
+    email: String
+    */
     private @DrawableRes int foto;
     private String nama;
     private String noTelepon;
     private String email;
 
+    //TODO 2: Membuat Getter & Setter
+    /*
+    Getter: Method untuk mengambil data dari sebuah objek
+    Setter: Method untuk mengisi data sebuah objek
+    */
     public int getFoto() {
         return foto;
     }
