@@ -2,7 +2,6 @@ package com.genadidharma.kontakan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,7 +20,7 @@ Beberapa langkah yang dilakukan:
 */
 public class MainActivity extends AppCompatActivity {
 
-    // TODO 21: Membuat key untuk setiap data yang akan dikirimkan lewat Intent Explicit
+    // TODO 22: Membuat key untuk setiap data yang akan dikirimkan lewat Intent Explicit
     // Tujuannya adalah untuk menghindari typo, karena pada penggunaannya cukup memanggil variabelnya saja.
     public static final String EXTRA_KEY_NAMA = "nama";
     public static final String EXTRA_KEY_NO_TELEPON = "no_telepon";
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         KontakAdapter kontakAdapter = new KontakAdapter(lisKontak, new OnItemClickListener() {
             @Override
             public void onItemClick(Kontak kontak) {
-                // TODO 22: Membuat Intent Explicit dan mengirimkan setiap data pada objek Kontak
+                // TODO 23: Membuat Intent Explicit dan mengirimkan setiap data pada objek Kontak
                 // Membuat objek Intent
                 Intent intent = new Intent(MainActivity.this, DetailKontakActivity.class);
                 // Mengirimkan data setiap atribut kontak
@@ -58,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(EXTRA_KEY_NO_TELEPON, kontak.getNoTelepon());
                 intent.putExtra(EXTRA_KEY_EMAIL, kontak.getEmail());
                 intent.putExtra(EXTRA_KEY_FOTO, kontak.getFoto());
-                // Memulai activity
                 startActivity(intent);
             }
         });
