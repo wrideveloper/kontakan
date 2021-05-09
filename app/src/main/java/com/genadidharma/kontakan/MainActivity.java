@@ -12,6 +12,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_KEY_NAMA = "nama";
+    public static final String EXTRA_KEY_NO_TELEPON = "no_telepon";
+    public static final String EXTRA_KEY_EMAIL = "email";
+    public static final String EXTRA_KEY_FOTO = "gambar";
+
     private RecyclerView rvKontak;
 
     private final List<Kontak> lisKontak = KontakData.getKontakData();
@@ -28,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Kontak kontak) {
                 Intent intent = new Intent(MainActivity.this, DetailKontakActivity.class);
-                intent.putExtra("kontak", (Parcelable) kontak);
+                intent.putExtra(EXTRA_KEY_NAMA, kontak.getNama());
+                intent.putExtra(EXTRA_KEY_NO_TELEPON, kontak.getNoTelepon());
+                intent.putExtra(EXTRA_KEY_EMAIL, kontak.getEmail());
+                intent.putExtra(EXTRA_KEY_FOTO, kontak.getFoto());
                 startActivity(intent);
             }
         });

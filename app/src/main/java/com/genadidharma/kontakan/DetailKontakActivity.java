@@ -1,5 +1,6 @@
 package com.genadidharma.kontakan;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -11,6 +12,11 @@ import com.bumptech.glide.request.RequestOptions;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DetailKontakActivity extends AppCompatActivity {
+    private String nama;
+    private String noTelepon;
+    private String email;
+    private @DrawableRes int foto;
+
     private CircleImageView ciFoto;
     private TextView tvNama;
     private TextView tvNoTelepon;
@@ -21,16 +27,15 @@ public class DetailKontakActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_kontak);
 
         initLayout();
-
-        Kontak kontak = getParcelable();
+        getIntentExtra();
 
         Glide
                 .with(getApplicationContext())
-                .load(kontak.getFoto())
+                .load(foto)
                 .apply(new RequestOptions().override(100, 100))
                 .into(ciFoto);
-        tvNama.setText(kontak.getNama());
-        tvNoTelepon.setText(kontak.getNoTelepon());
+        tvNama.setText(nama);
+        tvNoTelepon.setText(noTelepon);
     }
 
     private void initLayout(){
@@ -39,7 +44,10 @@ public class DetailKontakActivity extends AppCompatActivity {
         tvNoTelepon = findViewById(R.id.tv_no_telepon);
     }
 
-    private Kontak getParcelable(){
-        return getIntent().getParcelableExtra("kontak");
+    private void getIntentExtra(){
+        nama = getIntent().getStringExtra(MainActivity.EXTRA_KEY_NAMA);
+        noTelepon = getIntent().getStringExtra(MainActivity.EXTRA_KEY_NO_TELEPON);
+        email = getIntent().getStringExtra(MainActivity.EXTRA_KEY_EMAIL);
+        foto = getIntent().getIntExtra(MainActivity.EXTRA_KEY_FOTO, 0);
     }
 }
