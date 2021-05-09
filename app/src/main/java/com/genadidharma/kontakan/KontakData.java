@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KontakData {
+    //TODO 3: Membuat 10 data untuk mengisi atribut
+    /*
+    Masing-masing atribut(foto, nama, noTelepon, email) harus diinisalisasikan datanya terlebih dahulu
+    menggunakan Array masing-masing sebanyak 10.
+    */
     private static final int[] foto = {
             R.drawable.brian_lowe,
             R.drawable.dean_robertson,
@@ -56,18 +61,25 @@ public class KontakData {
             "wildagreen@gmail.com"
     };
 
+    // TODO 4: Membuat method untuk membuat objek kontak dan menyimpan ke dalam List
+    // Method mengembalikan nilai bertipe List<Kontak>
     public static List<Kontak> getKontakData(){
+        // Mendeklarasikan varibel ArrayList berjenis Kontak
         ArrayList<Kontak> listKontak = new ArrayList<>();
+        // Melakukan perulangan sebanyak jumlah data(10 kali)
         for (int i = 0; i < nama.length; i++) {
+            // Membuat objek Kontak
             Kontak kontak = new Kontak();
+            // Mengisi data setiap atribut menggunakan setter()
             kontak.setFoto(foto[i]);
             kontak.setNama(nama[i]);
             kontak.setNoTelepon(noTelepon[i]);
             kontak.setEmail(email[i]);
 
+            // Menambahkan objek kontak ke dalam ArrayList Kontak
             listKontak.add(kontak);
         }
-
+        // Mengembalikan nilai ArrayList Kontak
         return listKontak;
     }
 }

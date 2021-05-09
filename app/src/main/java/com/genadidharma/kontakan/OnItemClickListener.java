@@ -1,7 +1,8 @@
 package com.genadidharma.kontakan;
 
-import android.view.View;
-
+// TODO 10: Membuat Interface OnItemClickListener
+// Interface ini berfungsi untuk mengambil data Kontak untuk nantinya dikirim ke Activity Detail
 public interface OnItemClickListener {
+    // Membuat method onItemClick yang parameternya berisi objek Kontak
     void onItemClick(Kontak kontak);
 }
